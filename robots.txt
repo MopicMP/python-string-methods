@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://MopicMP.github.io/python-string-methods/sitemap.xml
