@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://MopicMP.github.io/python-string-methods/index.html</loc><priority>1.0</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-format.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-split.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-join.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-replace.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-strip.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-lstrip.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-rstrip.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-lower.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-upper.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-title.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-capitalize.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-find.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-index.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-count.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-startswith.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-endswith.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-isdigit.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-isalpha.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-isalnum.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-isspace.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-encode.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-center.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-zfill.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-partition.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-maketrans.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-translate.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-expandtabs.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-ljust.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-rjust.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-swapcase.html</loc><priority>0.8</priority></url>
+  <url><loc>https://MopicMP.github.io/python-string-methods/str-casefold.html</loc><priority>0.8</priority></url>
+</urlset>
