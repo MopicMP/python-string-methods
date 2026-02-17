@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>str.split - Python String Methods | BetterDocs</title>
+    <meta name="description" content="Documentation for str.split. - Enhanced documentation with real-world code examples.">
+    <meta name="keywords" content="str.split, Python String Methods, Python, documentation, examples, tutorial">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://MopicMP.github.io/python-string-methods/str-split.html">
+    
+    <style>
+        :root {
+            --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
+            --fg: #c9d1d9; --fg2: #8b949e; --accent: #58a6ff;
+            --green: #3fb950; --orange: #d29922; --red: #f85149;
+            --border: #30363d; --code-bg: #1a1e24;
+            --radius: 8px; --max-w: 900px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+                         Arial, sans-serif, 'Apple Color Emoji';
+            background: var(--bg); color: var(--fg);
+            line-height: 1.6; min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            background: var(--bg3); padding: 2px 6px; border-radius: 4px;
+            font-size: 0.9em;
+        }
+        pre { background: var(--code-bg); border: 1px solid var(--border);
+              border-radius: var(--radius); padding: 16px; overflow-x: auto;
+              line-height: 1.5; margin: 12px 0; }
+        pre code { background: none; padding: 0; font-size: 0.85em; }
+
+        .container { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+
+        /* Nav */
+        .top-nav { background: var(--bg2); border-bottom: 1px solid var(--border);
+                   padding: 12px 20px; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: var(--max-w); margin: 0 auto;
+                     display: flex; align-items: center; gap: 16px; }
+        .logo { font-weight: 700; font-size: 1.1em; color: var(--green); }
+        .logo:hover { text-decoration: none; }
+        .nav-title { color: var(--fg2); flex: 1; }
+        .nav-links { display: flex; gap: 16px; font-size: 0.9em; }
+
+        /* Header */
+        .site-header { padding: 40px 0 30px; text-align: center; }
+        .site-header h1 { font-size: 2em; margin-bottom: 12px; }
+        .lead { color: var(--fg2); font-size: 1.1em; max-width: 600px; margin: 0 auto 16px; }
+        .stats { color: var(--fg2); font-size: 0.9em; margin-bottom: 20px; }
+
+        /* Search */
+        .search-box { max-width: 400px; margin: 0 auto; }
+        .search-box input {
+            width: 100%; padding: 10px 16px; font-size: 1em;
+            background: var(--bg3); color: var(--fg); border: 1px solid var(--border);
+            border-radius: var(--radius); outline: none;
+        }
+        .search-box input:focus { border-color: var(--accent); }
+
+        /* Symbol grid */
+        .symbols-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                        gap: 12px; padding: 20px 0 40px; }
+        .symbol-card {
+            background: var(--bg2); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 16px;
+            transition: border-color 0.2s, transform 0.2s;
+            display: block; color: var(--fg);
+        }
+        .symbol-card:hover { border-color: var(--accent); transform: translateY(-2px);
+                             text-decoration: none; }
+        .symbol-name { font-weight: 600; margin-bottom: 6px; }
+        .symbol-desc { color: var(--fg2); font-size: 0.85em; margin-bottom: 6px; }
+        .symbol-meta { color: var(--green); font-size: 0.8em; }
+
+        /* Doc Page */
+        .doc-header { padding: 30px 0 20px; border-bottom: 1px solid var(--border);
+                      margin-bottom: 24px; }
+        .breadcrumb { font-size: 0.85em; color: var(--fg2); margin-bottom: 12px; }
+        .breadcrumb .sep { margin: 0 6px; }
+        .doc-header h1 { font-size: 1.8em; }
+        .doc-header h1 code { font-size: 1em; background: none; padding: 0; }
+        .signature { margin-top: 8px; }
+        .signature code { font-size: 1em; color: var(--green); background: var(--bg3);
+                          padding: 6px 12px; display: inline-block; border-radius: var(--radius); }
+
+        section { margin-bottom: 32px; }
+        section h2 { font-size: 1.3em; margin-bottom: 12px;
+                     padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+        .subtitle { color: var(--fg2); margin-bottom: 16px; }
+        .meta { margin-top: 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .badge { background: var(--bg3); padding: 4px 10px; border-radius: 12px;
+                 font-size: 0.8em; color: var(--fg2); }
+        .official-link { font-size: 0.85em; }
+
+        /* Examples */
+        .example-block { margin-bottom: 20px; border: 1px solid var(--border);
+                         border-radius: var(--radius); overflow: hidden; }
+        .example-header { background: var(--bg3); padding: 8px 12px;
+                          display: flex; align-items: center; gap: 8px;
+                          font-size: 0.85em; color: var(--fg2); }
+        .example-num { font-weight: 600; color: var(--accent); }
+        .example-header a { font-size: 0.85em; }
+        .copy-btn { margin-left: auto; background: var(--bg); color: var(--fg2);
+                    border: 1px solid var(--border); border-radius: 4px;
+                    padding: 2px 8px; cursor: pointer; font-size: 0.8em; }
+        .copy-btn:hover { color: var(--fg); border-color: var(--accent); }
+        .no-examples { color: var(--fg2); font-style: italic; }
+
+        /* Related */
+        .related-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-link { background: var(--bg2); border: 1px solid var(--border);
+                        padding: 6px 12px; border-radius: var(--radius);
+                        font-size: 0.85em; }
+        .related-link:hover { border-color: var(--accent); text-decoration: none; }
+
+        /* CTA */
+        .course-cta { background: linear-gradient(135deg, #1a3a2a, #162230);
+                      border: 1px solid var(--green); border-radius: var(--radius);
+                      padding: 32px; margin: 40px 0; text-align: center; }
+        .cta-inner h3 { color: var(--green); font-size: 1.3em; margin-bottom: 8px; }
+        .cta-inner p { color: var(--fg2); margin-bottom: 16px; }
+        .cta-button { display: inline-block; background: var(--green); color: #000;
+                      font-weight: 700; padding: 12px 32px; border-radius: var(--radius);
+                      font-size: 1.05em; transition: opacity 0.2s; }
+        .cta-button:hover { opacity: 0.9; text-decoration: none; }
+        .cta-note { font-size: 0.8em; margin-top: 8px; }
+
+        /* Footer */
+        .site-footer { background: var(--bg2); border-top: 1px solid var(--border);
+                       padding: 24px; text-align: center; margin-top: 40px; }
+        .footer-inner p { color: var(--fg2); font-size: 0.85em; margin: 4px 0; }
+        .copyright { font-size: 0.75em; }
+
+        @media (max-width: 600px) {
+            .symbols-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .site-header h1 { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">BetterDocs</a>
+            <span class="nav-title">Python String Methods</span>
+            <div class="nav-links">
+                <a href="index.html">All Functions</a>
+                <a href="https://docs.python.org/3/library/stdtypes.html#string-methods" target="_blank" rel="noopener">Official Docs</a>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <article class="doc-page">
+            <header class="doc-header">
+                <div class="breadcrumb">
+                    <a href="index.html">Python String Methods</a>
+                    <span class="sep">/</span>
+                    <span class="current">str.split</span>
+                </div>
+                <h1><code>str.split</code></h1>
+                <div class="signature"><code>str.split(...)</code></div>
+            </header>
+
+            <section class="description">
+                <h2>Description</h2>
+                <p>Documentation for str.split.</p>
+                <p class="meta">
+                    <span class="badge">Python</span>
+                    <span class="badge">Python String Methods</span>
+                    <a href="https://docs.python.org/3/library/stdtypes.html#string-methods" target="_blank" rel="noopener" class="official-link">Official Docs</a>
+                </p>
+            </section>
+
+            <section class="examples">
+                <h2>Real-World Examples</h2>
+                <p class="subtitle">Practical code examples showing how <code>str.split</code> is used in real projects.</p>
+                
+            <div class="example-block">
+                <div class="example-header">
+                    <span class="example-num">Example 1</span>
+                    <a href="https://github.com/binary-husky/gpt_academic/blob/d6bde0fa54373309bd05823a49bda8da019d2c77/crazy_functions/paper_fns/auto_git/query_analyzer.py" target="_blank" rel="noopener">From binary-husky/gpt_academic (crazy_functions/paper_fns/auto_git/query_analyzer.py)</a>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code class="language-python"># 提取子主题
+            sub_topics = []
+            sub_topics_text = self._extract_tag(extracted_responses[self.BASIC_QUERY_INDEX], &quot;sub_topics&quot;)
+            if sub_topics_text:
+                sub_topics = [topic.strip() for topic in sub_topics_text.split(&quot;,&quot;)]
+
+            # 提取语言
+            language = self._extract_tag(extracted_responses[self.BASIC_QUERY_INDEX], &quot;language&quot;)
+
+            # 提取最低星标数
+            min_stars = 0
+            min_stars_text = self._extract_tag(extracted_responses[self.BASIC_QUERY_INDEX], &quot;min_stars&quot;)
+            if min_stars_text and min_stars_text.isdigit():
+                min_stars = int(min_stars_text)
+
+            # 解析GitHub搜索参数 - 英文
+            english_github_query = self._extract_tag(extracted_responses[self.GITHUB_QUERY_INDEX], &quot;query&quot;)
+
+            # 解析GitHub搜索参数 - 中文
+            chinese_github_query = self._extract_tag(extracted_responses[2], &quot;query&quot;)
+
+            # 构建GitHub参数
+            github_params = {
+                &quot;query&quot;: english_github_query,</code></pre>
+            </div>
+
+            <div class="example-block">
+                <div class="example-header">
+                    <span class="example-num">Example 2</span>
+                    <a href="https://github.com/LearningCircuit/local-deep-research/blob/9143f18158e778111573c692b38a8aeba90deb62/src/local_deep_research/web_search_engines/engines/search_engine_github.py" target="_blank" rel="noopener">From LearningCircuit/local-deep-research (src/local_deep_research/web_search_engines/engines/search_engine_github.py)</a>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code class="language-python">specialized_query += f&quot; language:{&#x27; language:&#x27;.join(languages)}&quot;
+
+            # Extract keywords
+            keywords = [
+                word
+                for word in query.split()
+                if len(word) &gt; 3
+                and word.lower()
+                not in [
+                    &quot;recommend&quot;,
+                    &quot;recommended&quot;,
+                    &quot;github&quot;,
+                    &quot;repositories&quot;,
+                    &quot;looking&quot;,
+                    &quot;developers&quot;,
+                    &quot;contribute&quot;,
+                    &quot;contributing&quot;,
+                    &quot;beginner&quot;,
+                    &quot;newcomer&quot;,
+                ]
+            ]
+
+            if keywords:
+                specialized_query += &quot; &quot; + &quot; &quot;.join(
+                    keywords[:5]</code></pre>
+            </div>
+            </section>
+
+            
+            <section class="related">
+                <h2>Related Functions</h2>
+                <div class="related-grid">
+                    <a href="str-format.html" class="related-link"><code>str.format</code></a><a href="str-join.html" class="related-link"><code>str.join</code></a><a href="str-replace.html" class="related-link"><code>str.replace</code></a><a href="str-strip.html" class="related-link"><code>str.strip</code></a><a href="str-lstrip.html" class="related-link"><code>str.lstrip</code></a>
+                </div>
+            </section>
+
+            
+        <aside class="course-cta">
+            <div class="cta-inner">
+                <h3>Want to master Python String Methods?</h3>
+                <p>Our comprehensive course <strong>Python For Beginners</strong> covers everything from basics to advanced patterns with hands-on projects.</p>
+                <a href="https://gumroad.com/l/python-for-beginners" class="cta-button" target="_blank" rel="noopener">
+                    Get the Full Course
+                </a>
+                <p class="cta-note">Join hundreds of students who leveled up their skills</p>
+            </div>
+        </aside>
+
+        </article>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>BetterDocs is an independent documentation project.</p>
+            <p>Learn more at <a href="https://gumroad.com/l/python-for-beginners" target="_blank" rel="noopener">Python For Beginners</a></p>
+            <p class="copyright">&copy; 2026 BetterDocs. Not affiliated with the official project.</p>
+        </div>
+    </footer>
+    
+    <script>
+    function copyCode(btn) {
+        const code = btn.closest('.example-block').querySelector('code').textContent;
+        navigator.clipboard.writeText(code).then(() => {
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
+        });
+    }
+    </script>
+</body>
+</html>
